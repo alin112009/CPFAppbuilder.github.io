@@ -67,9 +67,9 @@
 
 
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7,8,1]');
-           
+            //cpf.requst('["grove_setColorRGB",0,255,255,255]');
 
-            var light=cpf.get("a0");
+            /*var light=cpf.get("a0");
             if(light<500){
                 var r=cpf.get("rgb led","r");
                 var g=cpf.get("rgb led","g");
@@ -77,7 +77,7 @@
             }else{
                 cpf.set("rgb led",0,0,0);
             }
-            cpf.repeat();
+            cpf.repeat();*/
 
     var light;
 
@@ -86,7 +86,7 @@
 	function loop() {
     var light;
 		if(cpf){
-            light = cpf.get("light sensor");
+            light = cpf.get("a0");
             if(light<500){
                 var r=cpf.get("rgb led","r");
                 var g=cpf.get("rgb led","g");
