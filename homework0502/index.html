@@ -26,7 +26,7 @@
                 <div id="analog" class="col-sm-6 col-xs-12">
                     <div class="analogclass">
                         <img class="analogsensor" src="img/light.png" style="display: block;margin: auto;"/>
-                         <span class="analogvalue" id="lightvalue">light</span><br>
+                         <span class="analogvalue" id="lightvalue">value</span><br>
                     </div>
                     <p>
                 </div>
@@ -55,6 +55,9 @@
 
     <script>
 
+            
+
+            
             var light;
             setup();
             function setup(){
@@ -76,12 +79,37 @@
             }else{
                 cpf.request('["digitalWrite", 7 , 0]');
                 document.getElementById("lightvalue").innerHTML ="關";
-            }	
+            }
+			   
+			document.getElementById("lightvalue").innerHTML = light;	
 		}
 		setTimeout(loop, 1000);
 	}
 	loop();
 	
+	// RGB
+	function changeColor() {
+		var Rled = document.getElementById("rled").value;
+		var Gled = document.getElementById("gled").value;
+		var Bled = document.getElementById("bled").value;
+		
+		document.getElementById("redvalue").innerHTML = Rled;
+		document.getElementById("greenvalue").innerHTML = Gled;
+		document.getElementById("bluevalue").innerHTML = Bled;
+		
+		
+		if(cpf){
+			cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
+		}
+		
+	}
+	
+	// cpf setup
+	function setup(){
+		if(cpf)
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
+			//document.getElementById("demo").innerHTML += ret + "<br>";
+	}
 </script>
 </body>
 </html>
