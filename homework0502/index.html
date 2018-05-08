@@ -24,6 +24,12 @@
 
     <script>
 
+    cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
+    cpf.get("a0");
+
+    cpf.setPinMode('["resetPin"],["setPinMode","digital",7,"INPUT"]');
+    cpf.get("d7");
+
     var light;
 	setup();
 	// Analog
