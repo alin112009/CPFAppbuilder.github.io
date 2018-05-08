@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta chartset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-		
-    </head>
-    <body>
 
-        <h1>light sensor</h1>
-        <div id="content" class="row">
-            <div class="col-sm-12  col-xs-12">
-                <div id="analog" class="col-sm-6 col-xs-12">
-                    <div class="analogclass">
-                        <img class="analogsensor" src="img/light.png" style="display: block;margin: auto;"/>
-                            <span class="analogvalue" id="light"></span><br>
-                    </div>
-                </div>    
+<head>
+    <meta chartset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <h1>light sensor</h1>
+    <div id="content" class="row">
+        <div class="col-sm-12  col-xs-12">
+            <div id="analog" class="col-sm-6 col-xs-12">
+                <div class="analogclass text-center">
+                    <img class="analogsensor" src="img/light.png" style="display: block;margin: auto;" />
+                    <span class="analogvalue" id="lightvalue"></span>
+                    <br>
+                    <span id="lightlevel"></span>
+                </div>
             </div>
         </div>
+    </div>
     <script>
 
-    var light;
-	setup();
+        var light;
+        setup();
 
-    function setup(){
-        if(cpf)
-        {
-            cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
-            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7, "OUTPUT"]');
-        }
-    }
-
-	function loop() {
-		if(cpf){
-            light = cpf.get("a0");
-            document.getElementById("light").innerHTML = light;
-            console.log(light);
-            light=value;
-
-            if(light<100){
-                document.getElementById("light").innerHTML ="開";
-                cpf.request('["digitalWrite", 7 , 1]');
-            }else{
-                document.getElementById("lighte").innerHTML ="關";
-                cpf.request('["digitalWrite", 7 , 0]');
+        function setup() {
+            if (cpf) {
+                cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
+                cpf.setPinMode('["resetPin"],["setPinMode","digital", 7, "OUTPUT"]');
             }
-        }	
-		setTimeout(loop, 1000);
-	}
-	loop();
-	
-</script>
+        }
+
+        function loop() {
+            if (cpf) {
+                light = cpf.get("a0");
+                document.getElementById("lightlevel").innerHTML = light;
+                // console.log(light);
+                // light = value;
+
+                if (light < 400) {
+                    document.getElementById("lightvalue").innerHTML = "開";
+                    cpf.request('["digitalWrite", 7 , 1]');
+                } else {
+                    document.getElementById("lightvalue").innerHTML = "關";
+                    cpf.request('["digitalWrite", 7 , 0]');
+                }
+            }
+            setTimeout(loop, 200);
+        }
+        loop();
+
+    </script>
 </body>
+
 </html>
