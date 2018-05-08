@@ -2,18 +2,13 @@
 <html>
     <head>
         <meta chartset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>光感測器</title>
+        <title>Light Sensor</title>
         <style>
         body{
             background-color: 
             rgb(255, 255, 255);
         }
         h1{ color:navy;
-            text-align: center;
-        }
-        p{
-            color:navy;
             text-align: center;
         }
         </style>
@@ -26,7 +21,7 @@
 
     cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
 
-    cpf.setPinMode('["resetPin"],["setPinMode","digital",7,"INPUT"]');
+    cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7, "OUTPUT"]');
 
     var light;
 	setup();
