@@ -54,18 +54,16 @@
     </div>
 
     <script>
-/*            cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
+          cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
             cpf.get("a0");
 
-            
-
-            cpf.setPinMode('["resetPin"],["setPinMode","digital",3,"INPUT"]');
-            cpf.get("d3");
+            cpf.setPinMode('["resetPin"],["setPinMode","digital",7,"INPUT"]');
+            cpf.get("d7");
 
             cpf.setPinMode('["resetPin"],["grove_newChainableLED",7,8,1]');
             cpf.requst('["grove_setColorRGB",0,255,255,255]');
 
-            var value=cpf.get("light sensor");
+            var value=cpf.get("a0");
             if(value<500){
                 var r=cpf.get("rgb led","r");
                 var g=cpf.get("rgb led","g");
@@ -73,9 +71,9 @@
             }else{
                 cpf.set("rgb led",0,0,0);
             }
-            cpf.repeat();*/
+            cpf.repeat();
 
-    var light;
+    /*var light;
 
 	setup();
 	// Analog
@@ -120,7 +118,7 @@
 		if(cpf)
 			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
-	}
+	}*/
 </script>
 </body>
 </html>
