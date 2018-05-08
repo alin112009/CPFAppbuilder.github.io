@@ -74,6 +74,7 @@
                 cpf.set("rgb led",0,0,0);
             }
             cpf.repeat();*/
+
     var light;
 
 	setup();
@@ -81,8 +82,15 @@
 	function loop() {
     var light;
 		if(cpf){
-	
-			light = cpf.get("light sensor");
+            light = cpf.get("light sensor");
+            if(light<500){
+                var r=cpf.get("rgb led","r");
+                var g=cpf.get("rgb led","g");
+                var b=cpf.get("rgb led","b");
+            }else{
+                cpf.set("rgb led",0,0,0);
+            }
+			   
 			document.getElementById("lightvalue").innerHTML = lightdata;	
 		}
 		setTimeout(loop, 1000);
