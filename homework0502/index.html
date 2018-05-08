@@ -42,9 +42,8 @@
             console.log(light);
             light=value;
 
-            if(light<500){
+            if(light<100){
                 document.getElementById("light").innerHTML ="開";
-
                 cpf.request('["digitalWrite", 7 , 1]');
             }else{
                 document.getElementById("lighte").innerHTML ="關";
