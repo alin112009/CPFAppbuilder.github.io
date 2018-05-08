@@ -3,7 +3,7 @@
     <head>
         <meta chartset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Light Sensor</title>
+        <title>光感測器</title>
         <style>
         body{
             background-color: 
@@ -25,8 +25,11 @@
     <script>
 
     cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
+    cpf.get("a0");
 
-    cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7, "OUTPUT"]');
+    cpf.setPinMode('["resetPin"],["setPinMode","digital",7,"INPUT"]');
+    cpf.get("d7");
+
     var light;
 	setup();
 	// Analog
@@ -35,6 +38,7 @@
             light = cpf.get("a0");
             document.getElementById("lightvalue").innerHTML = light;
             console.log(light);
+        }	
             if(light<500){
                 document.getElementById("lightvalue").innerHTML ="開";
                 cpf.request('["digitalWrite", 7 , 1]');
@@ -42,8 +46,6 @@
                 document.getElementById("lightvalue").innerHTML ="關";
                 cpf.request('["digitalWrite", 7 , 0]');
             }
-        }	
-            
 		setTimeout(loop, 1000);
 	}
 	loop();
