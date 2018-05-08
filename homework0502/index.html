@@ -18,8 +18,6 @@
                     <div class="analogclass">
                         <img class="analogsensor" src="img/light.png" style="display: block;margin: auto;"/>
                             <span class="analogvalue" id="light"></span><br>
-                            <p>
-                            <span class="analogvalue" id="value">value</span><br>
                     </div>
                 </div>    
             </div>
@@ -27,7 +25,6 @@
     <script>
 
     var light;
-    var value;
 	setup();
 
     function setup(){
@@ -47,11 +44,10 @@
 
             if(light<500){
                 document.getElementById("light").innerHTML ="開";
-                document.getElementById("value").innerHTML =value;
+
                 cpf.request('["digitalWrite", 7 , 1]');
             }else{
                 document.getElementById("lighte").innerHTML ="關";
-                document.getElementById("value").innerHTML =value;
                 cpf.request('["digitalWrite", 7 , 0]');
             }
         }	
