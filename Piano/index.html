@@ -24,9 +24,10 @@
     
     var scale=[261,293,329,349,392,440,493,523];
         setup();
-        function loop(){
+        function setup(){
             if(cpf){
                 cpf.setPinMode('["resetPin"],["setPinMode","analog",0,"INPUT"]');
+                cpf.setPinMode('["resetPin"],["setPinMode","digital", 6, "OUTPUT"]');
                 cpf.setPinMode('["resetPin"],["setPinMode","digital",6,"TONE"]');
                 //261-Do
                 //293-Re
@@ -37,9 +38,22 @@
                 //493-Si
                 //523-Do
             }
-            setTimeout(loop,1000);
         }
-        loop();
+
+    function loop(){
+        if(cpf){
+            cpf.requst('["tone_play",6,261,300],["sleep",300]');
+            cpf.requst('["tone_play",6,293,300],["sleep",300]');
+            cpf.requst('["tone_play",6,329,300],["sleep",300]');
+            cpf.requst('["tone_play",6,349,300],["sleep",300]');
+            cpf.requst('["tone_play",6,392,300],["sleep",300]');
+            cpf.requst('["tone_play",6,440,300],["sleep",300]');
+            cpf.requst('["tone_play",6,493,300],["sleep",300]');
+            cpf.requst('["tone_play",6,523,300],["sleep",300]');
+        }
+        setTimeout(loop,1000);
+    }
+    loop();
 
 /*
 int speakerPin = 2;
