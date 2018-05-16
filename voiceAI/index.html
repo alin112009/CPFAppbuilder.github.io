@@ -19,14 +19,13 @@
         setup();
 
             cpf.requst('["analogWrite",6,0]');
-            cpf.initSpeechRecognition("cmn-Hant-TW");
-            
+
         clickbtn.addEventListener('click',function(event){
             cpf.initSpeechRecognition("cmn-Hant-TW");
         });
             
 
-function GetRecongitionResult(Result,Type){
+function GetRecongnizeResult(Result,Type){
     if(Result.inculdes("好熱")){
             cpf.SetSpeech("On","cmn-Hant-TW","電扇開囉",1,2);
             for(i=0;i<255;i+=10){
