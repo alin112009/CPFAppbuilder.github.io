@@ -20,6 +20,11 @@
 
             cpf.requst('["analogWrite",6,0]');
             cpf.initSpeechRecognition("cmn-Hant-TW");
+            
+        clickbtn.addEventListener('click',function(event){
+            cpf.initSpeechRecognition("cmn-Hant-TW");
+        });
+            
 
 function GetRecongitionResult(Result,Type){
     if(Result.inculdes("好熱")){
