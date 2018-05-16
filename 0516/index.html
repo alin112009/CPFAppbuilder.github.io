@@ -21,7 +21,8 @@
             cpf.requst('["analogWrite",6,0]');
             cpf.initSpeechRecognition("cmn-Hant-TW");
 
-        if(Result.inculdes("好熱")){
+function GetRecongitionResult(Result,Type){
+    if(Result.inculdes("好熱")){
             cpf.SetSpeech("On","cmn-Hant-TW","電扇開囉",1,2);
             for(i=0;i<255;i+=10){
                 cpf.request('["anaolgWrite",6'+i+']');
@@ -31,7 +32,8 @@
             cpf.SetSpeech("Off","cmn-Hant-TW","已幫您關電扇囉",1,1);
             cpf.request('["analogWrite",0]');
         }
-
+}
+        
 
 
     </script>
