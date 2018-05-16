@@ -38,7 +38,12 @@ function GetRecongnizeResult(Result,Type){
         }
 }
         
-
+function setup()
+{
+    if(cpf){
+        cps.setPinMode('["resetPin],["setPinMode","digital",7,"PWM]');
+    }
+}
 
     </script>
     
