@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Piano</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1 class="title">Piano</h1>
+
+    <div id="keyboard">
+        <div class="piano">
+            <button id="p1" class="p0" onclick="p1()">Do</button>
+            <button id="p2" class="p0" onclick="p2()">Re</button>
+            <button id="p3" class="p0" onclick="p3()">Mi</button>
+            <button id="p4" class="p0" onclick="p4()">Fa</button>
+            <button id="p5" class="p0" onclick="p5()">So</button>
+            <button id="p6" class="p0" onclick="p6()">La</button>
+            <button id="p7" class="p0" onclick="p7()">Si</button>
+            <button id="p8" class="p0" onclick="p8()">Do</button>
+            <button id="p9" onclick="p9()">music</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    var tone = 0;
+    setup();
+    
+
+    function p1() {
+        cpf.request('["tone_play", 5, 261, 300],["sleep", 300]');
+        //cpf.set("socket d5", 261, 300);
+    }
+    function p2() {
+        cpf.request('["tone_play", 5, 293, 300],["sleep", 300]');
+        //cpf.set("socket d5", 293, 300);
+    }
+    function p3() {
+        cpf.request('["tone_play", 5, 329, 300],["sleep", 300]');
+        //cpf.set("socket d5", 329, 300); 
+    }
+    function p4() {
+        cpf.request('["tone_play", 5, 349, 300],["sleep", 300]');
+        //cpf.set("socket d5", 349, 300); 
+    }
+    function p5() {
+        cpf.request('["tone_play", 5, 392, 300],["sleep", 300]');
+        //cpf.set("socket d5", 392, 300);     
+    }
+    function p6() {
+        cpf.request('["tone_play", 5, 440, 300],["sleep", 300]');
+        //cpf.set("socket d5", 440, 300);     
+    }
+    function p7() {
+        cpf.request('["tone_play", 5, 493, 300],["sleep", 300]');
+        //cpf.set("socket d5", 493, 300);
+    }
+    function p8() {
+        cpf.request('["tone_play", 5, 523, 300],["sleep", 300]');
+        //cpf.set("socket d5", 523, 300);   
+    }
+    function p9() {
+        cpf.request('["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 293, 300],["sleep", 300],["tone_play", 5, 261, 300],["sleep", 300],["tone_play", 5, 293, 523],["sleep", 300],["tone_play", 5, 329, 300],["sleep", 300],["tone_play", 5, 349, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300],["tone_play", 5, 392, 300],["sleep", 300]'); 
+    }
+    function setup() {
+        if (cpf) {
+            cpf.setPinMode('["resetPin"],["setPinMode", "digital", 5, "TONE"] ');
+        }
+    }
+</script>
+
+</html>
