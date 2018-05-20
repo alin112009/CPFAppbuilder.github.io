@@ -1,60 +1,101 @@
-* {
-    font-family: Microsoft JhengHei;
+*{
+    font-family: Microsoft Uilnnyl;
 }
 
 html,body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
-.title {
+body{ 
+    background-color: #FFFFFF
+}
+
+.images{
+    position: relative;
     width: 100%;
-    text-align: center;
-    margin: 25px auto;
+    height: 480px;
 }
 
-#keyboard {
-    width: 100%;
-    height: 300px;
-    font-size: 50%;
-    padding: 0px 5%;
-    margin: 0 auto;
-    font-size: 20px;
+#button1{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 36%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.piano {
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
+
+#do{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 39.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.p0 {
-    height: 200px;
-    width: 11%;
-    padding: 0;
-    border-color: #000;
-    border-width: 0.5px;
-    box-sizing: border-box;
-    margin: 20px 0;
+#re{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 43%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.p0:nth-child(even) {
-    background: #30D5C8;
+#mi{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 46.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.p0:nth-child(odd) {
-    background: #FFF;
+#fa{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-.p0:hover {
-    color: #FFF;
-    background: #6c6c6c;
+#so{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 53.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }
 
-#p9 {
-    width: 30%;
-    height: 50px;
-    margin: 0 35%;
+#la{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 57%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#si{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 60.5%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+#do2{
+    position: absolute;
+    height: 304px;
+    width: 69px;
+    left: 64%;
+    bottom: 10px;
+    transform: translateX(-50%);
 }

@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>風扇</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>控制風扇</title>
 </head>
 <body>
-        <button id="clickbtn" onclick ="btn()">呼叫</button>
+        <h1>控制風扇</h1>
+        <button id="clickbtn">呼叫</button>
         </br>
+        <p id="words">none</p>
 
 
     <script>
-        var i;
-        var clickbnt=document.getElementById("clickbtn");
+
+        var clickbtn=document.getElementById("clickbtn");
         setup();
-
-            cpf.requst('["analogWrite",6,0]');
-
-        clickbtn.addEventListener('click',function(event){
+        cpf.request('["analogWrite",6,0]');
+        clickbnt.addEventListener('click',function(event){
             cpf.initSpeechRecognition("cmn-Hant-TW");
         });
-            
 
-function GetRecongnizeResult(Result,Type){
-    if(Result.inculdes("好熱")){
-            cpf.SetSpeech("On","cmn-Hant-TW","電扇開囉",1,2);
-            for(i=0;i<255;i+=10){
-                cpf.request('["anaolgWrite",6'+i+']');
+        function GetRecongnizeResult(Result,Type){
+            if(Result.include("好熱")||Result.include("我知道你熱")){
+                document.getElementById("words").innerHTML=Result;
+                cpf,SetSpeech("On","cmn-Hant-TW","風扇來囉",1,2);
+                for(i=0;i<255;i+=10){
+                    cpf.request('["analogWrite",6,' + i + ']');
+                }
+            }else if(Result.include("好冷")||Result.include("如果你冷")){
+                document.getElementById("words").innerHTML=Result;
+                cpf.SetSpeech("On","cmn-Hant-TW","已幫您關電扇",1,1);
+                cpf.request('["analogWrite",6,0]');
             }
         }
-        else if(Result.inculdes("好冷")){
-            cpf.SetSpeech("Off","cmn-Hant-TW","已幫您關電扇囉",1,1);
-            cpf.request('["analogWrite",0]');
+
+        function setup(){
+            if(cpf){
+                cpf.setPinMode('["resetPin"],["setPinMode","digital",6,"PWM"]');
+            }
         }
-}
-        
-function setup()
-{
-    if(cpf){
-        cpf.setPinMode('["resetPin],["setPinMode","digital",7,"PWM]');
-    }
-}
+
     </script>
     
 </body>
